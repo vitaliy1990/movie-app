@@ -19,7 +19,7 @@ const SearchSection = () => {
   });
 
   const watchedValues = methods.watch();
-  const debouncedValues = useDebounceFilter(watchedValues, 400);
+  const debouncedValues = useDebounceFilter(watchedValues, 500);
 
   useEffect(() => {
     if (debouncedValues) {

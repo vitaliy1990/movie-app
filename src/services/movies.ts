@@ -1,4 +1,4 @@
-import type { ResponseGenres, ResponseMovies } from "../types";
+import type { ResponseGenres, ResponseMovies } from '../types';
 
 const BASE_URL = import.meta.env.VITE_API_URL;
 const API_KEY = import.meta.env.VITE_API_KEY;
@@ -8,13 +8,13 @@ export const fetchMovies = async (
   signal?: AbortSignal
 ): Promise<ResponseMovies> => {
   const url = `${BASE_URL}/search/movie?api_key=${API_KEY}&${
-    queryParams || ""
+    queryParams || ''
   }`;
 
   const response = await fetch(url, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      accept: "application/json",
+      accept: 'application/json',
     },
     signal,
   });

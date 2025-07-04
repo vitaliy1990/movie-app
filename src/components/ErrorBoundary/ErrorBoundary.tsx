@@ -1,4 +1,4 @@
-import { Component, type ReactNode, type ErrorInfo } from "react";
+import { Component, type ReactNode, type ErrorInfo } from 'react';
 
 type Props = {
   children: ReactNode;
@@ -20,21 +20,21 @@ class ErrorBoundary extends Component<Props, State> {
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    console.error("Uncaught error:", error, errorInfo);
+    console.error('Uncaught error:', error, errorInfo);
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div className="p-5 bg-black/65  h-dvh flex flex-col justify-center items-center gap-8">
-          <h2 className="text-3xl font-extrabold text-red-600">
+        <div className='flex h-dvh flex-col items-center justify-center gap-8 bg-black/65 p-5'>
+          <h2 className='text-3xl font-extrabold text-red-600'>
             Something went wrong. Please try again later.
           </h2>
-          <details className="text-red-300 whitespace-pre-wrap">
+          <details className='whitespace-pre-wrap text-red-300'>
             {this.state.error?.message}
           </details>
           <button
-            className="cursor-pointer bg-blue-400 rounded-xl text-black py-1 px-4"
+            className='cursor-pointer rounded-xl bg-blue-400 px-4 py-1 text-black'
             onClick={() => this.setState({ hasError: false, error: undefined })}
           >
             Try again

@@ -3,9 +3,10 @@ import type {
   FieldValues,
   Path,
   UseFormRegister,
-} from "react-hook-form";
-import { cn } from "../../../utils/styles";
-import type { Option } from "../../../types";
+} from 'react-hook-form';
+
+import type { Option } from '../../../types';
+import { cn } from '../../../utils/styles';
 
 type Props<T extends FieldValues> = {
   label: string;
@@ -26,28 +27,34 @@ const Select = <T extends FieldValues>({
   error,
   placeholder,
   required = false,
-  rootClassName = "",
+  rootClassName = '',
 }: Props<T>) => (
-  <label className={cn("filter-field", rootClassName)}>
+  <label className={cn('filter-field', rootClassName)}>
     {label}
     <select
-      className="filter-select"
+      className='filter-select'
       {...register(name, { required })}
-      defaultValue=""
+      defaultValue=''
     >
       {placeholder && (
-        <option value="" disabled>
+        <option
+          value=''
+          disabled
+        >
           {placeholder}
         </option>
       )}
       {options.map((opt) => (
-        <option key={opt.value} value={opt.value}>
+        <option
+          key={opt.value}
+          value={opt.value}
+        >
           {opt.label}
         </option>
       ))}
     </select>
     {error && (
-      <p className="absolute -bottom-5 text-[#f70000]">{error.message}</p>
+      <p className='absolute -bottom-5 text-[#f70000]'>{error.message}</p>
     )}
   </label>
 );

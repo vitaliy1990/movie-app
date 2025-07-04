@@ -4,9 +4,10 @@ import {
   useState,
   type FC,
   type PropsWithChildren,
-} from "react";
-import type { Genre } from "../../types";
-import { fetchGenres } from "../../services/movies";
+} from 'react';
+
+import { fetchGenres } from '../../services/movies';
+import type { Genre } from '../../types';
 
 type GenresContextType = {
   genres: Genre[] | null;
@@ -34,9 +35,9 @@ const GenresProvider: FC<PropsWithChildren> = ({ children }) => {
         setGenres(response.genres);
       } catch (err: unknown) {
         if (err instanceof Error) {
-          setError(err.message || "Unknown error");
+          setError(err.message || 'Unknown error');
         } else {
-          setError("Unknown error");
+          setError('Unknown error');
         }
       } finally {
         setIsLoading(false);

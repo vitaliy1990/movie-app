@@ -1,6 +1,6 @@
-import Header from "../components/Header/Header";
-import SearchSection from "../components/SearchSection/SearchSection";
-import MovieResults from "../components/MovieResults/MovieResults";
+import Header from '../components/Header/Header';
+import MovieResults from '../components/MovieResults/MovieResults';
+import SearchSection from '../components/SearchSection/SearchSection';
 
 const HomePage = () => {
   return (

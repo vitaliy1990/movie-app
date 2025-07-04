@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
-import { fetchMovies } from "../services/movies";
-import type { Movie } from "../types";
-import { useDebounce } from "./useDebounce";
-import { decodeParam } from "../utils/params";
-import toast from "react-hot-toast";
+import { useEffect, useState } from 'react';
+
+import toast from 'react-hot-toast';
+
+import { fetchMovies } from '../services/movies';
+import type { Movie } from '../types';
+import { useDebounce } from './useDebounce';
+import { decodeParam } from '../utils/params';
 
 export const useAutocomplete = (query: string) => {
   const [results, setResults] = useState<Movie[]>([]);
@@ -29,9 +31,9 @@ export const useAutocomplete = (query: string) => {
 
         setResults(response.results);
       } catch (err: unknown) {
-        if (err instanceof Error && err.name !== "AbortError") {
-          setError("Failed to fetch suggestions");
-          toast.error("Failed to fetch suggestions");
+        if (err instanceof Error && err.name !== 'AbortError') {
+          setError('Failed to fetch suggestions');
+          toast.error('Failed to fetch suggestions');
         }
       } finally {
         setLoading(false);

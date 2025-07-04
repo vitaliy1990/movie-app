@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useState } from "react";
-import { MAX_HISTORY_COUNT } from "../const";
+import { useCallback, useEffect, useState } from 'react';
+
+import { MAX_HISTORY_COUNT } from '../const';
 
 const STORAGE_KEY = import.meta.env.VITE_STORAGE_HISTORY_KEY;
 

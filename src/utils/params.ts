@@ -6,5 +6,5 @@ export const decodeParam = (value: string | null | undefined) => {
     return decodeURIComponent(value);
   }
 
-  return "";
+  return '';
 };

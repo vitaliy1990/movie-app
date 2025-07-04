@@ -1,6 +1,7 @@
-import type { FieldValues, Path, UseFormRegister } from "react-hook-form";
-import type { Option } from "../../../types";
-import { cn } from "../../../utils/styles";
+import type { FieldValues, Path, UseFormRegister } from 'react-hook-form';
+
+import type { Option } from '../../../types';
+import { cn } from '../../../utils/styles';
 
 type Props<T extends FieldValues> = {
   name: Path<T>;
@@ -15,16 +16,20 @@ const CheckboxGroup = <T extends FieldValues>({
   label,
   options,
   register,
-  rootClassName = "",
+  rootClassName = '',
 }: Props<T>) => (
-  <div className={cn("flex flex-col gap-2", rootClassName)}>
-    {label && <p className="filter-label">{label}</p>}
+  <div className={cn('flex flex-col gap-2', rootClassName)}>
+    {label && <p className='filter-label'>{label}</p>}
     {options.map((option) => (
       <label
         key={option.value}
-        className="font-normal cursor-pointer select-none flex items-center gap-2"
+        className='flex cursor-pointer items-center gap-2 font-normal select-none'
       >
-        <input type="checkbox" value={option.value} {...register(name)} />
+        <input
+          type='checkbox'
+          value={option.value}
+          {...register(name)}
+        />
         {option.label}
       </label>
     ))}

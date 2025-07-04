@@ -3,8 +3,9 @@ import type {
   FieldValues,
   Path,
   UseFormRegister,
-} from "react-hook-form";
-import { cn } from "../../../utils/styles";
+} from 'react-hook-form';
+
+import { cn } from '../../../utils/styles';
 
 type Props<T extends FieldValues> = {
   label: string;
@@ -19,18 +20,21 @@ const Checkbox = <T extends FieldValues>({
   name,
   register,
   error,
-  rootClassName = "",
+  rootClassName = '',
 }: Props<T>) => (
   <label
     className={cn(
-      "font-normal cursor-pointer select-none gap-3 flex items-center",
+      'flex cursor-pointer items-center gap-3 font-normal select-none',
       rootClassName
     )}
   >
-    <input type="checkbox" {...register(name)} />
+    <input
+      type='checkbox'
+      {...register(name)}
+    />
     {label}
     {error && (
-      <p className="absolute -bottom-5 text-[#f70000]">{error.message}</p>
+      <p className='absolute -bottom-5 text-[#f70000]'>{error.message}</p>
     )}
   </label>
 );

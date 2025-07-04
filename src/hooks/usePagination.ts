@@ -1,5 +1,6 @@
-import { useMemo } from "react";
-import { createRange } from "../utils/pagination";
+import { useMemo } from 'react';
+
+import { createRange } from '../utils/pagination';
 
 type Props = {
   currentPage: number;

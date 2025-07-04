@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
 export const useDebounceFilter = <T>(value: T, delay = 400): T | null => {
   const [debouncedValue, setDebouncedValue] = useState<T | null>(null);

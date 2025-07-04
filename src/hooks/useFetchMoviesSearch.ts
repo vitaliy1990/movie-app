@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
-import type { ResponseMovies } from "../types";
-import { useSearchParams } from "react-router-dom";
-import { fetchMovies } from "../services/movies";
-import toast from "react-hot-toast";
+import { useEffect, useState } from 'react';
+
+import toast from 'react-hot-toast';
+import { useSearchParams } from 'react-router-dom';
+
+import { fetchMovies } from '../services/movies';
+import type { ResponseMovies } from '../types';
 
 export const useFetchMoviesSearch = () => {
   const [searchParams] = useSearchParams();
@@ -23,9 +25,9 @@ export const useFetchMoviesSearch = () => {
         const response = await fetchMovies(searchParams.toString(), signal);
         setData(response || null);
       } catch (err: unknown) {
-        if (err instanceof Error && err.name !== "AbortError") {
-          setError("Failed to fetch suggestions");
-          toast.error("Error fetching movies");
+        if (err instanceof Error && err.name !== 'AbortError') {
+          setError('Failed to fetch suggestions');
+          toast.error('Error fetching movies');
         }
       } finally {
         setIsLoading(false);

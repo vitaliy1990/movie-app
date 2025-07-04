@@ -1,5 +1,6 @@
-import { memo, type FC } from "react";
-import HistoryItem from "./HistoryItem/HistoryItem";
+import { memo, type FC } from 'react';
+
+import HistoryItem from './HistoryItem/HistoryItem';
 
 type Props = {
   history: string[];
@@ -9,13 +10,17 @@ type Props = {
 
 const HistoryList: FC<Props> = ({ history, onClick, onClear }) => {
   return (
-    <div className="relative flex flex-col">
+    <div className='relative flex flex-col'>
       {history.map((query) => (
-        <HistoryItem key={query} value={query} handleClick={onClick} />
+        <HistoryItem
+          key={query}
+          value={query}
+          handleClick={onClick}
+        />
       ))}
       <button
         onClick={onClear}
-        className="sticky bottom-0 border-t border-t-red-300 text-sm text-red-500 p-1 w-full self-center hover:underline cursor-pointer bg-white"
+        className='sticky bottom-0 w-full cursor-pointer self-center border-t border-t-red-300 bg-white p-1 text-sm text-red-500 hover:underline'
       >
         Очистити історію
       </button>

@@ -1,7 +1,8 @@
-import { memo, useMemo, type FC } from "react";
-import type { Movie } from "../../../types";
-import { getReleaseYear } from "../../../utils/movies";
-import { useGenres } from "../../../hooks/useGenres";
+import { memo, useMemo, type FC } from 'react';
+
+import { useGenres } from '../../../hooks/useGenres';
+import type { Movie } from '../../../types';
+import { getReleaseYear } from '../../../utils/movies';
 
 type Props = Movie & {
   handleClick: (value: string) => void;
@@ -33,28 +34,28 @@ const SearchItem: FC<Props> = ({
   return (
     <button
       onClick={() => handleClick(title)}
-      className="flex gap-4 items-center px-6 py-4 w-full  border-b border-[#f0f0f0] cursor-pointer transition-colors duration-200 ease hover:bg-[#f8f9fe]"
+      className='ease flex w-full cursor-pointer items-center gap-4 border-b border-[#f0f0f0] px-6 py-4 transition-colors duration-200 hover:bg-[#f8f9fe]'
     >
       {poster_path ? (
         <img
           src={import.meta.env.VITE_BASE_IMG_URL + poster_path}
           alt={title}
-          className="object-cover w-10 h-[60px] bg-[#e1e5e9] rounded-[5px] shrink-0"
+          className='h-[60px] w-10 shrink-0 rounded-[5px] bg-[#e1e5e9] object-cover'
         />
       ) : (
-        <div className="flex items-center justify-center w-10 h-[60px] text-xl opacity-20 select-none rounded-[5px] shrink-0">
+        <div className='flex h-[60px] w-10 shrink-0 items-center justify-center rounded-[5px] text-xl opacity-20 select-none'>
           🎬
         </div>
       )}
-      <div className="flex flex-col gap-1 flex-1 items-start">
-        <h4 className="text-[16px] font-bold truncate">{title}</h4>
-        <div className="text-[#291f1f] text-sm flex items-center gap-1.5">
+      <div className='flex flex-1 flex-col items-start gap-1'>
+        <h4 className='truncate text-[16px] font-bold'>{title}</h4>
+        <div className='flex items-center gap-1.5 text-sm text-[#291f1f]'>
           <span>{releaseYear}</span>
           {genreNames.length > 0 && (
             <>
               <span>•</span>
-              <span className="flex items-center gap-1.5">
-                {genreNames.join(", ")}
+              <span className='flex items-center gap-1.5'>
+                {genreNames.join(', ')}
               </span>
             </>
           )}

@@ -1,5 +1,6 @@
-import type { FC } from "react";
-import { cn } from "../../utils/styles";
+import type { FC } from 'react';
+
+import { cn } from '../../utils/styles';
 
 type Props = {
   infoText?: string;
@@ -9,19 +10,19 @@ type Props = {
 
 const Loader: FC<Props> = ({
   infoText,
-  rootClassName = "",
-  loaderClassName = "",
+  rootClassName = '',
+  loaderClassName = '',
 }) => {
   return (
     <div
       className={cn(
-        "text-[#666] p-12 w-ful gap-4 flex flex-col items-center justify-center",
+        'w-ful flex flex-col items-center justify-center gap-4 p-12 text-[#666]',
         rootClassName
       )}
     >
       <div
         className={cn(
-          "animate-spin size-10 border-4 border-[#f0f0f0] border-t-[#764ba2] rounded-full",
+          'size-10 animate-spin rounded-full border-4 border-[#f0f0f0] border-t-[#764ba2]',
           loaderClassName
         )}
       />

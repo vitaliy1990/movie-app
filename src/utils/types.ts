@@ -1,1 +1,1 @@
-export const isBoolean = (value: unknown) => typeof value === "boolean";
+export const isBoolean = (value: unknown) => typeof value === 'boolean';

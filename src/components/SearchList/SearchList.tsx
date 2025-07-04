@@ -1,6 +1,7 @@
-import { memo, type FC } from "react";
-import type { Movie } from "../../types";
-import SearchItem from "./SearchItem/SearchItem";
+import { memo, type FC } from 'react';
+
+import type { Movie } from '../../types';
+import SearchItem from './SearchItem/SearchItem';
 
 type Props = {
   suggestions: Movie[];
@@ -11,7 +12,11 @@ const SearchList: FC<Props> = ({ suggestions, onClick }) => {
   return (
     <>
       {suggestions.map((movie) => (
-        <SearchItem key={movie.id} {...movie} handleClick={onClick} />
+        <SearchItem
+          key={movie.id}
+          {...movie}
+          handleClick={onClick}
+        />
       ))}
     </>
   );

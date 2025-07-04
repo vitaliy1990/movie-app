@@ -1,10 +1,12 @@
-import { type FC } from "react";
-import { usePagination } from "../../hooks/usePagination";
-import type { MoviesFilter, Pagination as PaginationType } from "../../types/";
-import { useMoviesFilter } from "../../hooks/useMoviesFilter";
-import { cn } from "../../utils/styles";
-import { ChevronLeftIcon } from "@heroicons/react/20/solid";
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import { type FC } from 'react';
+
+import { ChevronLeftIcon } from '@heroicons/react/20/solid';
+import { ChevronRightIcon } from '@heroicons/react/20/solid';
+
+import { useMoviesFilter } from '../../hooks/useMoviesFilter';
+import { usePagination } from '../../hooks/usePagination';
+import type { MoviesFilter, Pagination as PaginationType } from '../../types/';
+import { cn } from '../../utils/styles';
 
 type Props = PaginationType & {
   classNames?: string;
@@ -34,7 +36,7 @@ const Pagination: FC<Props> = ({
       page: page.toString(),
     } as MoviesFilter);
 
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const createPagesList = () => {
@@ -43,8 +45,8 @@ const Pagination: FC<Props> = ({
         <button
           onClick={() => handleClickPage(page)}
           key={index}
-          className={cn("hover:underline", {
-            "text-base font-semibold text-[lightseagreen]":
+          className={cn('hover:underline', {
+            'text-base font-semibold text-[lightseagreen]':
               page === currentPage,
           })}
         >
@@ -60,16 +62,16 @@ const Pagination: FC<Props> = ({
       <>
         <button
           disabled={currentPage <= pageButtonCount}
-          className="disabled:opacity-30"
+          className='disabled:opacity-30'
           onClick={() => handleClickPage(prevRange)}
         >
-          <ChevronLeftIcon className="size-6 text-[#764ba2] rounded-md border border-[#764ba2]/35" />
+          <ChevronLeftIcon className='size-6 rounded-md border border-[#764ba2]/35 text-[#764ba2]' />
         </button>
         {paginationRange?.map((page: number, index: number) => (
           <button
             onClick={() => handleClickPage(page)}
-            className={cn("hover:underline !cursor-pointer", {
-              "text-base font-semibold text-[#764ba2] ": page === currentPage,
+            className={cn('!cursor-pointer hover:underline', {
+              'text-base font-semibold text-[#764ba2]': page === currentPage,
             })}
             key={index}
           >
@@ -79,16 +81,16 @@ const Pagination: FC<Props> = ({
         <button
           disabled={paginationRange.includes(totalPages)}
           onClick={() => handleClickPage(nextRange)}
-          className="disabled:opacity-30"
+          className='disabled:opacity-30'
         >
-          <ChevronRightIcon className="size-6 text-[#764ba2] rounded-md border border-[#764ba2]/35" />
+          <ChevronRightIcon className='size-6 rounded-md border border-[#764ba2]/35 text-[#764ba2]' />
         </button>
       </>
     );
   };
 
   const rootClassName = cn(
-    "flex flex-row items-center justify-center gap-2",
+    'flex flex-row items-center justify-center gap-2',
     classNames
   );
 

@@ -1,58 +1,59 @@
-import Input from "../Fields/Input/Input";
-import { useFormContext } from "react-hook-form";
-import Select from "../Fields/Select/Select";
-import { languageOptions, regionOptions } from "../../const";
-import Checkbox from "../Fields/Checkbox/Checkbox";
+import { useFormContext } from 'react-hook-form';
+
+import { languageOptions, regionOptions } from '../../const';
+import Checkbox from '../Fields/Checkbox/Checkbox';
+import Input from '../Fields/Input/Input';
+import Select from '../Fields/Select/Select';
 
 const FilterForm = () => {
   const { register } = useFormContext();
 
   return (
-    <form className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4">
+    <form className='grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-4'>
       <Select
-        label="Language"
-        name="language"
+        label='Language'
+        name='language'
         register={register}
         options={languageOptions}
       />
       <Input
-        label="Release Year"
-        name="primary_release_year"
+        label='Release Year'
+        name='primary_release_year'
         register={register}
-        type="number"
+        type='number'
         min={1900}
         max={2030}
-        placeholder="e.g. 2024"
+        placeholder='e.g. 2024'
       />
       <Input
-        label="Year"
-        name="year"
+        label='Year'
+        name='year'
         register={register}
-        type="number"
+        type='number'
         min={1900}
         max={2030}
-        placeholder="e.g. 2024"
+        placeholder='e.g. 2024'
       />
       <Select
-        label="Region"
-        name="region"
+        label='Region'
+        name='region'
         register={register}
         options={regionOptions}
       />
       <Input
-        label="Page"
-        name="page"
+        label='Page'
+        name='page'
         register={register}
-        type="number"
+        type='number'
         min={1}
         max={1000}
-        placeholder="1"
+        placeholder='1'
       />
-      <div className="filter-field">
-        <p className="filter-label">Content Filter</p>
+      <div className='filter-field'>
+        <p className='filter-label'>Content Filter</p>
         <Checkbox
-          label="Include Adult Content"
-          name="include_adult"
+          label='Include Adult Content'
+          name='include_adult'
           register={register}
         />
       </div>

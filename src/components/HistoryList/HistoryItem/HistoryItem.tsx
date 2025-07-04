@@ -1,4 +1,4 @@
-import { memo, type FC } from "react";
+import { memo, type FC } from 'react';
 
 type Props = {
   value: string;
@@ -9,7 +9,7 @@ const HistoryItem: FC<Props> = ({ handleClick, value }) => {
   return (
     <button
       onClick={() => handleClick(value)}
-      className="px-6 py-4 border-b border-[#f0f0f0] hover:bg-[#f8f9fe] text-left w-full cursor-pointer"
+      className='w-full cursor-pointer border-b border-[#f0f0f0] px-6 py-4 text-left hover:bg-[#f8f9fe]'
     >
       {value}
     </button>

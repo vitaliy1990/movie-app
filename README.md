@@ -16,7 +16,7 @@
 
 ## 🚀 Live Demo
 
-🔗 [Деплой на Vercel (додати своє посилання)](https://movie-app-woad-theta.vercel.app)
+🔗 [Деплой на Vercel](https://movie-app-woad-theta.vercel.app)
 
 ---
 

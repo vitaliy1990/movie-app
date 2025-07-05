@@ -1,4 +1,4 @@
-import { type FC } from 'react';
+import { useEffect, type FC } from 'react';
 
 import { useFetchMoviesSearch } from '../../hooks/useFetchMoviesSearch';
 import MovieList from '../MovieList/MovieList';
@@ -7,6 +7,10 @@ import Section from '../Section/Section';
 
 const MovieResults: FC = () => {
   const { isLoading, data } = useFetchMoviesSearch();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [isLoading]);
 
   return (
     <Section>

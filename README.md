@@ -14,6 +14,8 @@
 
 **VITE_STORAGE_HISTORY_KEY=tmdb_search_history**
 
+**VITE_BASE_IMDB_URL=https://www.imdb.com/title**
+
 ## 🚀 Live Demo
 
 🔗 [Деплой на Vercel](https://movie-app-woad-theta.vercel.app)

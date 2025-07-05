@@ -4,6 +4,7 @@ import { useFormContext } from 'react-hook-form';
 
 import { useAutocomplete } from '../../hooks/useAutocomplete';
 import { useSearchHistory } from '../../hooks/useSearchHistory';
+import type { HistoryItem } from '../../types';
 import Input from '../Fields/Input/Input';
 import Loader from '../Loader/Loader';
 import SearchDropdown from '../SearchDropdown/SearchDropdown';
@@ -12,7 +13,7 @@ const SearchBar = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const blurTimeoutRef = useRef<null | number>(null);
 
-  const { register, watch, setValue, reset } = useFormContext();
+  const { register, watch, setValue } = useFormContext();
   const searchValue = watch('query');
   const pageValue = watch('page');
 
@@ -35,13 +36,10 @@ const SearchBar = () => {
   }, [searchValue]);
 
   const handleClick = useCallback(
-    (value: string) => {
-      reset();
-      addQuery(value);
-      setValue('query', value);
-      handleBlur();
+    (item: HistoryItem) => {
+      addQuery(item);
     },
-    [reset, addQuery, setValue]
+    [addQuery]
   );
 
   const handleBlur = () => {

@@ -35,8 +35,6 @@ const Pagination: FC<Props> = ({
       ...filters,
       page: page.toString(),
     } as MoviesFilter);
-
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const createPagesList = () => {

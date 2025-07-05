@@ -1,10 +1,11 @@
 import { memo, type FC } from 'react';
 
+import type { HistoryItem as HistoryItemType } from '../../types';
 import HistoryItem from './HistoryItem/HistoryItem';
 
 type Props = {
-  history: string[];
-  onClick: (value: string) => void;
+  history: HistoryItemType[];
+  onClick: (value: HistoryItemType) => void;
   onClear: () => void;
 };
 
@@ -13,8 +14,9 @@ const HistoryList: FC<Props> = ({ history, onClick, onClear }) => {
     <div className='relative flex flex-col'>
       {history.map((query) => (
         <HistoryItem
-          key={query}
-          value={query}
+          key={query.id}
+          id={query.id as string}
+          value={query.title}
           handleClick={onClick}
         />
       ))}

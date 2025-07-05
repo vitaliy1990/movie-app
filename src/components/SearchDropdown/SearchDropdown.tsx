@@ -1,6 +1,6 @@
 import { memo, type FC } from 'react';
 
-import type { Movie } from '../../types';
+import type { HistoryItem, Movie } from '../../types';
 import HistoryList from '../HistoryList/HistoryList';
 import SearchList from '../SearchList/SearchList';
 
@@ -8,8 +8,8 @@ type Props = {
   showSuggestions: boolean;
   showHistory: boolean;
   suggestions: Movie[];
-  history: string[];
-  onClick: (value: string) => void;
+  history: HistoryItem[];
+  onClick: (value: HistoryItem) => void;
   onClear: () => void;
 };
 

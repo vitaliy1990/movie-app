@@ -1,5 +1,7 @@
 import { memo, type FC } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import type { Movie } from '../../types';
 import { getReleaseYear } from '../../utils/movies';
 import Poster from '../Poster/Poster';
@@ -12,11 +14,15 @@ const MovieCard: FC<Movie> = ({
   vote_average,
   release_date,
   genre_ids,
+  id,
 }) => {
   const releaseYear = getReleaseYear(release_date);
 
   return (
-    <div className='movie-card cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-lg'>
+    <Link
+      to={`/movies/${id}`}
+      className='movie-card cursor-pointer transition-transform hover:-translate-y-1 hover:shadow-lg'
+    >
       <Poster
         posterPath={poster_path}
         title={title}
@@ -34,7 +40,7 @@ const MovieCard: FC<Movie> = ({
         </p>
         <TagMovieList genreIds={genre_ids} />
       </div>
-    </div>
+    </Link>
   );
 };
 

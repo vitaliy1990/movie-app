@@ -32,7 +32,7 @@ const GenresProvider: FC<PropsWithChildren> = ({ children }) => {
       setIsLoading(true);
       try {
         const response = await fetchGenres();
-        setGenres(response.genres);
+        setGenres(response?.genres || null);
       } catch (err: unknown) {
         if (err instanceof Error) {
           setError(err.message || 'Unknown error');

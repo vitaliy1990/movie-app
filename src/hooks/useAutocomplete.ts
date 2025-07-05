@@ -29,7 +29,7 @@ export const useAutocomplete = (query: string) => {
         const value = decodeParam(debouncedQuery);
         const response = await fetchMovies(`query=${value}`, signal);
 
-        setResults(response.results);
+        setResults(response?.results || []);
       } catch (err: unknown) {
         if (err instanceof Error && err.name !== 'AbortError') {
           setError('Failed to fetch suggestions');

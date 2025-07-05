@@ -1,11 +1,11 @@
 import { memo, type FC } from 'react';
 
-import type { Movie } from '../../types';
+import type { HistoryItem, Movie } from '../../types';
 import SearchItem from './SearchItem/SearchItem';
 
 type Props = {
   suggestions: Movie[];
-  onClick: (value: string) => void;
+  onClick: (value: HistoryItem) => void;
 };
 
 const SearchList: FC<Props> = ({ suggestions, onClick }) => {

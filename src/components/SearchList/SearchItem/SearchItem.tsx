@@ -1,11 +1,13 @@
 import { memo, useMemo, type FC } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import { useGenres } from '../../../hooks/useGenres';
-import type { Movie } from '../../../types';
+import type { HistoryItem, Movie } from '../../../types';
 import { getReleaseYear } from '../../../utils/movies';
 
 type Props = Movie & {
-  handleClick: (value: string) => void;
+  handleClick: (value: HistoryItem) => void;
 };
 
 const SearchItem: FC<Props> = ({
@@ -14,6 +16,7 @@ const SearchItem: FC<Props> = ({
   title,
   handleClick,
   genre_ids,
+  id,
 }) => {
   const { genres } = useGenres();
 
@@ -31,9 +34,14 @@ const SearchItem: FC<Props> = ({
 
   const releaseYear = getReleaseYear(release_date);
 
+  const handleMouseDown = () => {
+    handleClick({ title, id });
+  };
+
   return (
-    <button
-      onClick={() => handleClick(title)}
+    <Link
+      to={`/movies/${id}`}
+      onMouseDown={handleMouseDown}
       className='ease flex w-full cursor-pointer items-center gap-4 border-b border-[#f0f0f0] px-6 py-4 transition-colors duration-200 hover:bg-[#f8f9fe]'
     >
       {poster_path ? (
@@ -61,7 +69,7 @@ const SearchItem: FC<Props> = ({
           )}
         </div>
       </div>
-    </button>
+    </Link>
   );
 };
 

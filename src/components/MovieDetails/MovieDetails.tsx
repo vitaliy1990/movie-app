@@ -23,7 +23,9 @@ const MovieDetails: FC<MovieResponse> = (data) => {
 
   return (
     <Section className='flex flex-1 flex-col gap-4 p-6'>
-      <h3 className='truncate text-xl font-semibold text-[#333]'>{title}</h3>
+      <h3 className='line-clamp-3 text-xl font-semibold text-[#333]'>
+        {title}
+      </h3>
       <div className='font-medium text-[#764ba2]'>{releaseYear}</div>
       <p className='leading-[1.5] text-[#666]'>{overview}</p>
       <TagMovieList

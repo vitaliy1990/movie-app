@@ -30,7 +30,7 @@ const MovieCard: FC<Movie> = ({
       />
       <div className='flex flex-col gap-4 p-6'>
         <div className='flex flex-col gap-1'>
-          <h3 className='truncate text-xl leading-[1.3] font-semibold text-[#333]'>
+          <h3 className='line-clamp-2 text-xl leading-[1.3] font-semibold text-[#333]'>
             {title}
           </h3>
           <div className='font-medium text-[#764ba2]'>{releaseYear}</div>

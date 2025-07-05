@@ -55,8 +55,8 @@ const SearchItem: FC<Props> = ({
           🎬
         </div>
       )}
-      <div className='flex flex-1 flex-col items-start gap-1'>
-        <h4 className='truncate text-[16px] font-bold'>{title}</h4>
+      <div className='flex w-full flex-1 flex-col items-start gap-1'>
+        <h4 className='line-clamp-2 text-[16px] font-bold'>{title}</h4>
         <div className='flex items-center gap-1.5 text-sm text-[#291f1f]'>
           <span>{releaseYear}</span>
           {genreNames.length > 0 && (

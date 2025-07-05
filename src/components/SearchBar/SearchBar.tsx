@@ -71,7 +71,7 @@ const SearchBar = () => {
         />
         {loading && (
           <Loader
-            rootClassName='absolute right-1 bottom-1/2 translate-y-1/2 p-0 z-100'
+            rootClassName='absolute right-1 bottom-1/2 translate-y-1/2 p-0 z-100 w-auto'
             loaderClassName='size-6'
           />
         )}

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useFormContext } from 'react-hook-form';
 
@@ -10,23 +10,51 @@ import SearchDropdown from '../SearchDropdown/SearchDropdown';
 
 const SearchBar = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
+  const blurTimeoutRef = useRef<null | number>(null);
 
   const { register, watch, setValue, reset } = useFormContext();
   const searchValue = watch('query');
+  const pageValue = watch('page');
 
   const { history, addQuery, clearHistory } = useSearchHistory();
   const { results: suggestions, loading } = useAutocomplete(
     isFocused ? searchValue : ''
   );
 
+  useEffect(() => {
+    /*  Reset page only when searchValue changes  */
+    if (pageValue !== '1') {
+      setValue('page', '1');
+    }
+
+    return () => {
+      if (blurTimeoutRef.current) {
+        clearTimeout(blurTimeoutRef.current);
+      }
+    };
+  }, [searchValue]);
+
   const handleClick = useCallback(
     (value: string) => {
       reset();
       addQuery(value);
       setValue('query', value);
+      handleBlur();
     },
     [reset, addQuery, setValue]
   );
+
+  const handleBlur = () => {
+    blurTimeoutRef.current = setTimeout(() => setIsFocused(false), 200);
+  };
+
+  const handleFocus = () => {
+    if (blurTimeoutRef.current) {
+      clearTimeout(blurTimeoutRef.current);
+      blurTimeoutRef.current = null;
+    }
+    setIsFocused(true);
+  };
 
   const showSuggestions = searchValue && isFocused && suggestions.length > 0;
   const showHistory = isFocused && !searchValue && history.length > 0;
@@ -40,8 +68,8 @@ const SearchBar = () => {
           inputClassName='relative w-full px-6 py-4 text-[1.1rem] border-2 border-[#e1e5e9] rounded-2xl transition-all duration-300 ease bg-white z-50'
           placeholder='Search for movies...'
           autoComplete='off'
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setTimeout(() => setIsFocused(false), 200)}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
         />
         {loading && (
           <Loader

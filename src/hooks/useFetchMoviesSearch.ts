@@ -23,10 +23,10 @@ export const useFetchMoviesSearch = () => {
 
       try {
         const response = await fetchMovies(searchParams.toString(), signal);
-        setData(response || null);
-      } catch (err: unknown) {
-        if (err instanceof Error && err.name !== 'AbortError') {
-          setError('Failed to fetch suggestions');
+        setData(response);
+      } catch (error) {
+        if (error instanceof Error && error.name !== 'AbortError') {
+          setError(error.message);
           toast.error('Error fetching movies');
         }
       } finally {

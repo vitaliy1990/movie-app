@@ -16,7 +16,7 @@ const Loader: FC<Props> = ({
   return (
     <div
       className={cn(
-        'w-ful flex flex-col items-center justify-center gap-4 p-12 text-[#666]',
+        'flex w-full flex-col items-center justify-center gap-4 p-12 text-[#666]',
         rootClassName
       )}
     >

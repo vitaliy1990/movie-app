@@ -41,6 +41,12 @@ export type ResponseGenres = {
   genres: Genre[];
 };
 
+export type ResponseError = {
+  success: boolean;
+  status_code: number;
+  status_message: string;
+};
+
 export type Pagination = {
   currentPage: number;
   totalPages: number;

@@ -3,7 +3,6 @@ import MovieResults from '../components/MovieResults/MovieResults';
 import SearchSection from '../components/SearchSection/SearchSection';
 
 const HomePage = () => {
-  const r = 'test';
   return (
     <>
       <Header />
